@@ -13,6 +13,6 @@ public class Main {
         System.out.println(second.replaceAll("^abcDeee", "YYY"));
 
         System.out.println(second.matches("abcDeeeF12GhhabcDeeiiiijkl99z"));
-
+        System.out.println(alphanumeric.replaceAll("ijkl99z$", "THE END"));
     }
 }
