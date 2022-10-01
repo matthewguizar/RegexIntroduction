@@ -12,7 +12,13 @@ public class Main {
         String second = "abcDeeeF12GhhabcDeeiiiijkl99z";
         System.out.println(second.replaceAll("^abcDeee", "YYY"));
 
+        //entire expression must match for matches
         System.out.println(second.matches("abcDeeeF12GhhabcDeeiiiijkl99z"));
         System.out.println(alphanumeric.replaceAll("ijkl99z$", "THE END"));
+        System.out.println(alphanumeric.replaceAll("[aei]", "X"));
+
+        //removed if one of the letters from the first brackets are followed by any of the second letters
+        System.out.println(alphanumeric.replaceAll("[aei][Fj]", "X"));
+        
     }
 }
