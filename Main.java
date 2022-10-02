@@ -49,6 +49,14 @@ public class Main {
         //removes all non white space characters
         System.out.println(whiteSpace.replaceAll("\\S", ""));
 
+        //replaces A-Z, a-z, 0-9, and, _
+        System.out.println(newAlphanumeric.replaceAll("\\w", "X"));
+        //ignores A-Z, a-z, 0-9, and _
+        System.out.println(newAlphanumeric.replaceAll("\\W", "X"));
+
+        //each word becomes surrounded by replacement
+        System.out.println(whiteSpace.replaceAll("\\b", "X"));
+
        
     }
 }
