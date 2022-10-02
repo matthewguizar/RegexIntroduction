@@ -56,6 +56,12 @@ public class Main {
 
         //each word becomes surrounded by replacement
         System.out.println(whiteSpace.replaceAll("\\b", "X"));
+        //{quanitfier} checks for 3 e's to find match
+        System.out.println(alphanumeric.replaceAll("^abcDe{3}", "YYY"));
+        //+ checks to see if there are E's after no matter the number
+        System.out.println(newAlphanumeric.replaceAll("^abcDe+", "yyy"));
+        //checks if there are e's but work even if there aren't
+        System.out.println(alphanumeric.replaceAll("^abcDe*", "xxx"));
 
        
     }
