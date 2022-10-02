@@ -80,10 +80,29 @@ public class Main {
         htmlText.append("<p>here is the summary.</p>");
 //      " . " matches every character and "*" matches every <h2>
         String h2Pattern = ".*<h2>.*";
+        String regexPattern = "<h2>";
         //Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE
-        Pattern pattern = Pattern.compile(h2Pattern);
+        Pattern pattern = Pattern.compile(regexPattern);
         Matcher matcher = pattern.matcher(htmlText);
         System.out.println(matcher.matches());
        
+        //matches only occures once
+        matcher.reset();
+        int count = 0;
+        while(matcher.find()){
+            count++;
+            System.out.println("Occurence " + count + " :" + matcher.start() + " to " + matcher.end());
+        }
+        // meanns every h2 tag and everything inbetween 
+        //* == greedy quanitfier but adding ? makes it lazy
+        String h2GroupPattern = "(<h2>.*?</h2>)";
+        Pattern groupPattern = Pattern.compile(h2GroupPattern);
+        Matcher groupMatcher = groupPattern.matcher(htmlText);
+        System.out.println(groupMatcher.matches());
+        groupMatcher.reset();
+
+        while (groupMatcher.find()) {
+            System.out.println("Occurence: " + groupMatcher.group(1));
+        }
     }
 }
