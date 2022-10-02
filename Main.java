@@ -39,6 +39,16 @@ public class Main {
         //replaces all non digits
         System.out.println(newAlphanumeric.replaceAll("\\D", "X"));
 
+        String whiteSpace = "I have blanks and \t a tab, and alos a new line \n";
+
+        //removes all white space
+        System.out.println(whiteSpace.replaceAll("\\s", ""));
+
+        System.out.println(whiteSpace.replaceAll("\t", "X"));
+
+        //removes all non white space characters
+        System.out.println(whiteSpace.replaceAll("\\S", ""));
+
        
     }
 }
