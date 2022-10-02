@@ -1,3 +1,6 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Main {
     public static void main(String[] args) {
         String string = "I am a string. Yes, I am.";
@@ -63,6 +66,24 @@ public class Main {
         //checks if there are e's but work even if there aren't
         System.out.println(alphanumeric.replaceAll("^abcDe*", "xxx"));
 
+        //checking for a range EX: 2-5 e's in string
+        System.out.println(alphanumeric.replaceAll("^abcDe{2,5}", "lol"));
+        //removes all occurences of H followed by any number of I's , followed by at least one J that come after I
+        System.out.println(alphanumeric.replaceAll("h+i*j", "Y"));
+
+
+        StringBuilder htmlText = new StringBuilder("<h1> My heading</h1>");
+        htmlText.append("<h2>sub-heading</h2>");
+        htmlText.append("<p> this is a paragraph about something</p>");
+        htmlText.append("<p> another paragraph about something else</p>");
+        htmlText.append("<h2>summary</h2>");
+        htmlText.append("<p>here is the summary.</p>");
+//      " . " matches every character and "*" matches every <h2>
+        String h2Pattern = ".*<h2>.*";
+        //Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE
+        Pattern pattern = Pattern.compile(h2Pattern);
+        Matcher matcher = pattern.matcher(htmlText);
+        System.out.println(matcher.matches());
        
     }
 }
