@@ -104,5 +104,41 @@ public class Main {
         while (groupMatcher.find()) {
             System.out.println("Occurence: " + groupMatcher.group(1));
         }
+
+        //grabs text in betwen tags
+        String h2TextGroups = "(<h2>)(.+?)(</h2>)";
+        Pattern h2TextPattern = Pattern.compile(h2TextGroups);
+        Matcher h2Matcher = h2TextPattern.matcher(htmlText);
+
+        while (h2Matcher.find()) {
+            System.out.println("Occurences: " + h2Matcher.group(2));
+        }
+
+        System.out.println("harry".replaceAll("[H|h]arry", "Larry"));
+
+
+        String test = "tstvtkt";
+        //removing all T's that aren't followed by V opposite equivalent would be == t(?=v) 
+        String removingT = "t(?!v)";
+        Pattern pattern2 = Pattern.compile(removingT);
+        Matcher matcher2 = pattern2.matcher(test);
+
+        int count1 = 0;
+        while (matcher2.find()){
+            count1++;
+            System.out.println("Occurence " + count1 + matcher2.start() + " to " + matcher2.end());
+        }
+
+        // ^([\\(]{1}[0-9]{3}[\\)]{1}[ ]{1}[0-9]{3}[\\-]{1}[0-9]{4})$
+
+        String phone1 = "1234567890";
+        String phone2 = "(123) 456-7890";
+        String phone3 = "123 456-7890";
+        String phone4 = "(123)456-7890";
+
+        System.out.println("phone1 = " + phone1.matches("^([\\(]{1}[0-9]{3}[\\)]{1}[ ]{1}[0-9]{3}[\\-]{1}[0-9]{4})$"));
+        System.out.println("phone2 = " + phone2.matches("^([\\(]{1}[0-9]{3}[\\)]{1}[ ]{1}[0-9]{3}[\\-]{1}[0-9]{4})$"));
+        System.out.println("phone3 = " + phone3.matches("^([\\(]{1}[0-9]{3}[\\)]{1}[ ]{1}[0-9]{3}[\\-]{1}[0-9]{4})$"));
+        System.out.println("phone3 = " + phone4.matches("^([\\(]{1}[0-9]{3}[\\)]{1}[ ]{1}[0-9]{3}[\\-]{1}[0-9]{4})$"));
     }
 }
